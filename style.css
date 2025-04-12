@@ -1,0 +1,244 @@
+:root {
+  --bg-light: #f8f9fa;
+  --text-light: #333;
+  --form-bg-light: #fff;
+  --purple: #1d70d6;
+  --link-color: #0056b3;
+
+  --bg-dark: #1e1e1e;
+  --text-dark: #eee;
+  --form-bg-dark: #2a2a2a;
+  --purple-dark: #1d70d6;
+  --link-dark: #66aaff;
+}
+
+/* Темна тема */
+body.dark-theme {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-theme .container {
+  background-color: var(--form-bg-dark);
+  border-color: #444;
+  box-shadow: none;
+}
+
+body.dark-theme h1 {
+  color: #fff;
+}
+
+body.dark-theme table {
+  background-color: #2a2a2a;
+  color: #ddd;
+}
+
+body.dark-theme th {
+  background-color: #444;
+  color: #ddd;
+}
+
+body.dark-theme td a {
+  color: var(--link-dark);
+}
+
+body.dark-theme td a:hover {
+  color: #99ccff;
+}
+
+/* Базові стилі */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Контейнер */
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  background-color: var(--form-bg-light);
+  padding: 30px 40px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Ряд форми */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-step {
+  flex: 1 1 calc(33.333% - 13.34px); /* Три колонки з відступами */
+  min-width: 260px;
+  background-color: var(--purple);
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.dark-theme .form-step {
+  background-color: var(--purple-dark);
+}
+
+/* Мітка */
+label {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+/* Селекти */
+.form-step .choices {
+  width: 100%;
+  font-size: 14px;
+}
+
+.choices__inner {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 8px 12px; /* комфортний внутрішній відступ */
+  min-height: 40px;
+  font-size: 14px;
+  color: #495057;
+  box-sizing: border-box; /* важливо для коректної ширини */
+  width: 100%; /* гарантує, що не виходить за рамки */
+}
+
+.dark-theme .choices__inner {
+  background-color: #333;
+  border-color: #555;
+  color: #ddd;
+}
+.choices__list--dropdown {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+  color: #333;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: #f8f9fa;
+  color: #000;
+}
+.dark-theme .choices__item--selectable.is-highlighted {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Таблиця */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  font-size: 13px;
+  border: 1px solid #dee2e6;
+}
+th, td {
+  border: 1px solid #dee2e6;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+td a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+td a:hover {
+  text-decoration: underline;
+  color: #003d80;
+}
+
+/* Повідомлення */
+#resultsTable, #noResultsMessage { display: none; }
+
+#loadingMessage, #noResultsMessage {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+}
+
+.dark-theme #loadingMessage,
+.dark-theme #noResultsMessage {
+  background-color: #2a2a2a;
+  color: #aaa;
+  border-color: #444;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-step {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Стилі для кнопки "Купити" в таблиці */
+.buy-button {
+  display: inline-block;      /* Щоб застосувались відступи */
+  padding: 6px 14px;          /* Внутрішні відступи (підберіть за смаком) */
+  background-color: #d39e00;  /* Жовто-золотий колір, як на кнопці "Додати в кошик" */
+  color: #fff;                /* Білий колір тексту */
+  text-align: center;
+  text-decoration: none;      /* Прибираємо підкреслення посилання */
+  border: none;               /* Без рамки */
+  border-radius: 4px;         /* Заокруглення кутів */
+  cursor: pointer;            /* Курсор-рука */
+  font-weight: 600;           /* Напівжирний шрифт */
+  font-size: 13px;            /* Розмір шрифту, як у таблиці */
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Плавні переходи */
+  white-space: nowrap;        /* Щоб текст не переносився */
+}
+
+.buy-button:hover {
+  background-color: #b88a00;  /* Темніший відтінок при наведенні */
+  color: #fff;                /* Залишаємо білий текст */
+  text-decoration: none;
+}
+
+.buy-button:active { /* Ефект натискання */
+  transform: scale(0.98);
+}

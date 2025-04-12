@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошук запчастин для побутової техніки</title>
+    <!-- Підключення шрифту Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Підключення CSS Choices.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"
+    />
+
+    <!-- Підключення зовнішнього файлу стилів -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Пошук запчастин для побутової техніки</h1>
+
+        <!-- !!! НОВИЙ ОБГОРТУЮЧИЙ КОНТЕЙНЕР !!! -->
+        <div class="form-row">
+
+            <!-- !!! КЛАС ЗМІНЕНО НА form-step !!! -->
+            <div class="form-step">
+                <label for="selectTechType">Назва Техніки</label>
+                <select id="selectTechType" required></select>
+            </div>
+
+            <!-- !!! КЛАС ЗМІНЕНО НА form-step !!! -->
+            <div class="form-step">
+                <label for="selectBrand">Назва Бренда</label>
+                <select id="selectBrand" disabled required></select>
+            </div>
+
+            <!-- !!! КЛАС ЗМІНЕНО НА form-step !!! -->
+            <div class="form-step">
+                <label for="selectModel">Назва Моделі</label>
+                <select id="selectModel" disabled required></select>
+            </div>
+
+        </div> <!-- !!! КІНЕЦЬ ОБГОРТУЮЧОГО КОНТЕЙНЕРА !!! -->
+
+
+        <div id="loadingMessage" style="display: none;">Завантаження запчастин...</div>
+        <div id="noResultsMessage">Для вибраної моделі запчастин не знайдено.</div>
+
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Назва Моделі</th>
+                    <th>Категорія</th>
+                    <th>Назва Запчастини</th>
+                    <th>Артикул</th>
+                    <th>В Магазин</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTableBody">
+                <!-- Рядки будуть додані сюди за допомогою JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Підключення JS Choices.js -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+
+    <!-- Ваш існуючий script.js -->
+    <script src="script.js"></script>
+
+    <button onclick="document.body.classList.toggle('dark-theme')" style="
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+  🌓
+  </button>
+  
+
+</body>
+</html>
